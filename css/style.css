@@ -1,11 +1,33 @@
+.btn {
+    color: #cd0f0f;
+    font-weight: bold;
+    background-color: white;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+    background-color: white;
+    color: #cd0f0f;
+}
+
+.btn:hover {
+    background-color: #cd0f0f;
+    color: white;
+}
+
+.btn:active {
+    background-color: white;
+    color: #cd0f0f;
+    box-shadow: none;
+}
+
 body {
     font-family: 'Special Elite', serif;
     font-size: 19px;
-    color: orange;
     text-align: center;
     margin: auto;
     width: 90%;
-    /*background-attachment: scroll;*/
+    background-color: black;
 }
  
 #intro {
