@@ -74,9 +74,55 @@ $(document).ready(function() {
        $('<p></p>').appendTo($("#instructions")).typed({ strings : [newInstruction], typeSpeed : 0, callback : function() {
            endScrollPageDownLoop();
            callback && callback();
+           options(newInstruction)
        }});
    }
 
+	function options(input){
+	
+    	var option_one_start = false;
+    	var option_two_start = false;
+    	var opt1 = "";
+    	var opt2 = "";
+    
+    	for (var i = 0, len = input.length; i < len; i++) 
+        {
+			
+        if (input.charAt(i) === ":") 
+        {
+            option_one_start = true;
+        }
+        if (option_one_start === true && option_two_start === false )
+        {
+            if (input.charAt(i) === "<")
+            {
+                option_two_start = true;
+                option_one_start = false;
+		opt1 = opt1.replace(": ", "").replace("<", "");
+                $("#yes").html(opt1);
+            }
+
+            opt1 += input.charAt(i);
+            
+        }
+        
+        
+        if (option_one_start === true && option_two_start === true)
+        {
+            if (input.charAt(i) === "<")
+            {
+                option_two_start = false;
+                option_one_start = false;
+		opt2 = opt2.replace(": ", "").replace("<", "");
+                $("#no").html(opt2);
+            }
+            opt2 += input.charAt(i);
+            
+        }
+    }
+    
+    
+}
 
    function startScrollPageDownLoop() {
        scrollDownPageLoop = window.setInterval(scrollPageDown, 750);
