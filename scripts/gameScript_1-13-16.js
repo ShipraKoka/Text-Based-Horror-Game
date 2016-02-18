@@ -71,6 +71,7 @@ $(document).ready(function() {
     }
 
      function addToInstructions(newInstruction, callback) {
+       $("#buttonOptions").hide();
        startScrollPageDownLoop();
        $('<p></p>').appendTo($("#instructions")).typed({ strings : [newInstruction], typeSpeed : 0, callback : function() {
            endScrollPageDownLoop();
@@ -100,7 +101,8 @@ $(document).ready(function() {
                 option_two_start = true;
                 option_one_start = false;
 		opt1 = opt1.replace(": ", "").replace("<", "");
-                $("#yes").html(opt1);
+                $("#yes").html(opt1).show();
+		$("#buttonOptions").show();
             }
 
             opt1 += input.charAt(i);
@@ -115,7 +117,8 @@ $(document).ready(function() {
                 option_two_start = false;
                 option_one_start = false;
 		opt2 = opt2.replace(": ", "").replace("<", "");
-                $("#no").html(opt2);
+                $("#no").html(opt2).show();
+		$("#buttonOptions").show();
             }
             opt2 += input.charAt(i);
             
