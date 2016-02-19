@@ -128,15 +128,6 @@ $(document).ready(function() {
     
 }
 
-	function revealOptions(){
-		window.setTimeout(function(){
-			$('#buttonReveal').show();
-		}, 500);
-		$('#buttonReveal').one('click', function(){
-			$('#buttonOptions').show();
-		});
-	}
-
    function startScrollPageDownLoop() {
        scrollDownPageLoop = window.setInterval(scrollPageDown, 750);
    }
@@ -154,6 +145,17 @@ $(document).ready(function() {
        }
    }
 
+
+   function revealOptions() {
+       window.setTimeout(function () {
+           $('#buttonReveal').show();
+       }, 500);
+       $('#buttonReveal').one('click', function () {
+           startScrollPageDownLoop;
+           $('#buttonOptions').show();           
+           endScrollPageDownLoop;
+       });
+   }
 
     function play(){
         $("#textInput").hide();
@@ -190,13 +192,18 @@ $(document).ready(function() {
                 firstchoice();
             });
     }
+     
 
-    function firstchoice() {
+    function buttonReset() {
         $('.yes3').off();
         $('.no3').off();
         $('.yes3').on();
         $('.no3').on();
         $('#buttonYes').hide();
+    }
+
+    function firstchoice() {
+        buttonReset();
 		
 		revealOptions();
 		
@@ -218,12 +225,8 @@ $(document).ready(function() {
     }
 
     function firstfirstchoice(){
-        $('.yes4').off();
-        $('.no4').off();
-        $('.yes4').on();
-        $('.no4').on();
-        $('#buttonYes').hide();
-		
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: LEAVE THE HATCHET</br>Option 2: PICK UP THE HATCHET</br> ");
@@ -245,11 +248,8 @@ $(document).ready(function() {
     }
 
     function secondchoice(){
-        $('.yes5').off();
-        $('.no5').off();
-        $('.yes5').on();
-        $('.no5').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: RUN</br> ");
@@ -268,11 +268,8 @@ $(document).ready(function() {
 
 
     function thirdchoice(){
-        $('.yes6').off();
-        $('.no6').off();
-        $('.yes6').on();
-        $('.no6').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: RUN</br> ");
@@ -291,11 +288,8 @@ $(document).ready(function() {
 
 
     function thirdthirdchoice() {
-        $('.yes7').off();
-        $('.no7').off();
-        $('.yes7').on();
-        $('.no7').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: HEAD TOWARD THE HOUSE</br>Option 2: EXAMINE THE BODY</br> ");
@@ -316,11 +310,8 @@ $(document).ready(function() {
     }
 
     function fourthchoice() {
-        $('.yes8').off();
-        $('.no8').off();
-        $('.yes8').on();
-        $('.no8').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>I reached the porch. I tried to open the front door but the door was locked. If I had tried running from my attacker earlier, I would have been met with a latched door. There was a window on the right and one on the left. I could hear more rustling in the distance.<br><br>WHAT DID I DO?<br>Option 1: OPEN A WINDOW<br>Option 2: STAY OUTSIDE THE HOUSE<br> ");
@@ -338,11 +329,8 @@ $(document).ready(function() {
     }
 
     function fourthfourthchoice(){
-        $('.yes9').off();
-        $('.no9').off();
-        $('.yes9').on();
-        $('.no9').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>Option 1: OPEN THE LEFT WINDOW</br>Option 2: OPEN THE RIGHT WINDOW</br> ");
@@ -364,11 +352,8 @@ $(document).ready(function() {
 
 
     function fifthchoice() {
-        $('.yes10').off();
-        $('.no10').off();
-        $('.yes10').on();
-        $('.no10').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: OPEN THE DOOR LEADING TOWARD THE NOISE<br>Option 2: GO THROUGH THE DOOR LEADING AWAY FROM THE NOISE<br> ");
@@ -386,11 +371,8 @@ $(document).ready(function() {
     }
 
     function fifthfifthchoice() {
-        $('.yes11').off();
-        $('.no11').off();
-        $('.yes11').on();
-        $('.no11').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: HIDE UNDER THE TABLE<br>Option 2: HIDE IN THE CLOSET<br> ");
@@ -407,11 +389,8 @@ $(document).ready(function() {
         }
 
     function sixthchoice(){
-        $('.yes12').off();
-        $('.no12').off();
-        $('.yes12').on();
-        $('.no12').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("I hid and a man entered the room. He had a white shirt on with red stains. He wore a torn sack on his head and carried a double barreled shotgun. I held my breath. Lucky for me the man quickly stepped through the kitchen. He knocked over some chairs and arrived at a staircase and a door. He chose the door and exited the room. I waited until I no longer heard him. \"I need a gun\" I thought.</br>WHAT DID I DO?</br>Option 1: GO UP THE STAIRS</br>Option 2: FOLLOW THE MAN WITH THE SHOTGUN</br> ");
@@ -430,11 +409,8 @@ $(document).ready(function() {
     }
 
     function seventhchoice() {
-        $('.yes13').off();
-        $('.no13').off();
-        $('.yes13').on();
-        $('.no13').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: USE THE CANDLE TO START A FIRE<br>Option 2: KEEP EXPLORING THE HALLWAY<br> ", function(){
@@ -453,11 +429,8 @@ $(document).ready(function() {
     }
 
     function eigthchoice(){
-        $('.yes14').off();
-        $('.no14').off();
-        $('.yes14').on();
-        $('.no14').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
         $('.yes14').off();
         $('.no14').off();
 		revealOptions();
@@ -478,11 +451,8 @@ $(document).ready(function() {
         }
 
     function eigtheigthchoice(){
-        $('.yes15').off();
-        $('.no15').off();
-        $('.yes15').on();
-        $('.no15').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: TALK WITH THE WOMAN</br>Option 2: INSPECT THE BODY</br>");
@@ -503,11 +473,8 @@ $(document).ready(function() {
         }
 
     function eigtheigtheigtheigthchoice(){
-        $('.yes16').off();
-        $('.no16').off();
-        $('.yes16').on();
-        $('.no16').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: TALK MORE WITH THE WOMAN</br>Option 2: LEAVE THE ROOM</br>");
@@ -527,11 +494,8 @@ $(document).ready(function() {
         
 
     function eigtheigtheigthchoice(){
-        $('.yes17').off();
-        $('.no17').off();
-        $('.yes17').on();
-        $('.no17').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: YES, LEAVE WITH THE WOMAN</br>Option 2: NO, LEAVE HER BEHIND</br>");
@@ -552,11 +516,8 @@ $(document).ready(function() {
         }
 
     function ninthchoice(){
-        $('.yes18').off();
-        $('.no18').off();
-        $('.yes18').on();
-        $('.no18').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: GIVE JESSICA MY HATCHET</br>Option 2: KEEP BOTH WEAPONS TO MYSELF</br>");
@@ -576,11 +537,8 @@ $(document).ready(function() {
     
 
     function ninthninthchoice() {
-        $('.yes19').off();
-        $('.no19').off();
-        $('.yes19').on();
-        $('.no19').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: DODGE HIM<br>Option 2: ATTACK HIM<br>");
@@ -599,11 +557,8 @@ $(document).ready(function() {
     }
 
     function tenthchoice() {
-        $('.yes20').off();
-        $('.no20').off();
-        $('.yes20').on();
-        $('.no20').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: EXPLORE THE BACK OF THE ROOM<br>Option 2: HEAD OUT THE DOOR I CAME IN");
@@ -622,11 +577,8 @@ $(document).ready(function() {
         }
 
     function tenthtenthchoice() {
-        $('.yes21').off();
-        $('.no21').off();
-        $('.yes21').on();
-        $('.no21').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: HEAD UP FIRST<br>Option 2: HAVE JESSICA LEAD<br>Hit 1 or 2");
@@ -647,11 +599,8 @@ $(document).ready(function() {
         }
 
     function eleventhchoice() {
-        $('.yes22').off();
-        $('.no22').off();
-        $('.yes22').on();
-        $('.no22').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: INSPECT THE BOOKS<br>Option 2: INSPECT THE BODY<br>Hit 1 or 2");
@@ -670,11 +619,8 @@ $(document).ready(function() {
         }
 
     function twelfthchoice(){
-        $('.yes23').off();
-        $('.no23').off();
-        $('.yes23').on();
-        $('.no23').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: READ THE NOTE</br>Option 2: INSPECT THE BOOKS</br>");
@@ -693,11 +639,8 @@ $(document).ready(function() {
     }
 
     function twelftwelfchoice(){
-        $('.yes24').off();
-        $('.no24').off();
-        $('.yes24').on();
-        $('.no24').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("WHAT DID I DO?</br>Option 1: HEAD TOWARD THE UNEXPLORED DOOR</br>Option 2: GO BACK FROM WHER WE CAME</br>");
@@ -716,11 +659,8 @@ $(document).ready(function() {
     }
     
     function thirteenthchoice(){
-        $('.yes25').off();
-        $('.no25').off();
-        $('.yes25').on();
-        $('.no25').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("WHAT DID I DO?</br>Option 1: GO FOR THE DOOR</br>Option 2: GRAB A BOOK</br>");
@@ -739,11 +679,8 @@ $(document).ready(function() {
     }
 
     function thirteenththirteenthchoice(){
-        $('.yes26').off();
-        $('.no26').off();
-        $('.yes26').on();
-        $('.no26').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("WHAT DID I DO?</br>Option 1: CHECK OUT THE ROOM</br>Option 2: TALK TO JESSICA</br>");
@@ -764,11 +701,8 @@ $(document).ready(function() {
     }
 
     function thirteenonechoice(){
-        $('.yes27').off();
-        $('.no27').off();
-        $('.yes27').on();
-        $('.no27').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: OPEN THE DOOR</br>Option 2: TALK TO JESSICA</br>");
@@ -787,11 +721,8 @@ $(document).ready(function() {
     }
 
     function thirteentwochoice(){
-        $('.yes28').off();
-        $('.no28').off();
-        $('.yes28').on();
-        $('.no28').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("WHAT DID I DO?</br>Option 1: SCAN THE ROOM</br>Option 2: SEARCH FOR A DOOR OUT</br>");
@@ -818,11 +749,8 @@ $(document).ready(function() {
     }
 
     function thirteenththirteenththirteenthchoice() {
-        $('.yes29').off();
-        $('.no29').off();
-        $('.yes29').on();
-        $('.no29').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: IGNORE THEM</br>Option 2: TALK WITH THEM</br>");
@@ -843,11 +771,8 @@ $(document).ready(function() {
             }
 
     function fourteenthchoice() {
-        $('.yes30').off();
-        $('.no30').off();
-        $('.yes30').on();
-        $('.no30').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: ATTACK THEM</br>Option 2: TALK WITH THEM</br>");
@@ -866,11 +791,8 @@ $(document).ready(function() {
         }
 
     function firstfifteenthchoice(){
-        $('.yes31').off();
-        $('.no31').off();
-        $('.yes31').on();
-        $('.no31').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>I opened the door, let Jessica in and shut it behind us. I then locked it. Glad to be away from that room. \"This is a nightmare,\" I said. Jessica fell to the floor and rested against the wall. I sat next to her. She was shaking. \"What...is...happening...here?\" She trembled. \"I\'ve never heard of or seen such filth and such deplorableness...\" She asked me, \"What were those people doing? Why were they mauled?\" I looked at her and tried to think of something comforting to say. But nothing intelligent entered my mind. I sat, confused and upset.</br>WHAT DID I DO?</br>Option 1: SIT IN SILENCE</br>Option 2: TALK WITH JESSICA</br>");
@@ -891,11 +813,8 @@ $(document).ready(function() {
         }
 
     function fifteenthchoice(){
-        $('.yes32').off();
-        $('.no32').off();
-        $('.yes32').on();
-        $('.no32').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("</br>I opened the door, let Jessica in and shut it behind us. I then locked it. Glad to be away from that room. \"This is a nightmare,\" I said. Jessica fell to the floor and rested against the wall. I sat next to her. She was shaking. \"What...is...happening...here?\" She trembled. \"I\'ve never heard of or seen such filth and such deplorableness...\" I looked at her and tried to think of something comforting to say. But nothing intelligent entered my mind. All I knew is that we couldn\'t sit here. \"We need to get out of this torment.\" I looked over the room. It was small. There were two doors. One door with light coming from the bottom. The other door had a cool breeze and no light on the bottom.</br>WHAT DID I DO?</br>Option 1: ENTER THE ROOM WITH THE BREEZE</br>Option 2: ENTER THE DOOR WITH THE LIGHT</br>");
@@ -914,11 +833,8 @@ $(document).ready(function() {
         }
 
     function sixteenthchoice(){
-        $('.yes33').off();
-        $('.no33').off();
-        $('.yes33').on();
-        $('.no33').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CLIMB THE FENCE</br>Option 2: TAKE THE PATH TO THE DOOR</br>");
@@ -937,11 +853,8 @@ $(document).ready(function() {
             }
 
     function seventeenthchoice(){
-        $('.yes34').off();
-        $('.no34').off();
-        $('.yes34').on();
-        $('.no34').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK FOR THE KEY</br>Option 2: KICK THE DOOR DOWN</br>");
@@ -960,11 +873,8 @@ $(document).ready(function() {
             }
 
     function seventeenthseventeenthchoice(){
-        $('.yes35').off();
-        $('.no35').off();
-        $('.yes35').on();
-        $('.no35').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CALL FOR HELP</br>Option 2: ATTACK WHATEVER WAS ON TOP OF ME</br>");
@@ -985,11 +895,8 @@ $(document).ready(function() {
         }
 
     function eighteenthchoice(){
-        $('.yes36').off();
-        $('.no36').off();
-        $('.yes36').on();
-        $('.no36').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TURN THE SCREENS ON?</br>Option 2: LEAVE THEM BE?</br>");
@@ -1008,11 +915,8 @@ $(document).ready(function() {
         }
 
     function nineteenthchoice(){
-        $('.yes39').off();
-        $('.no39').off();
-        $('.yes39').on();
-        $('.no39').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: HIDE</br>Option 2: PREPARE TO ATTACK</br>");
@@ -1030,11 +934,8 @@ $(document).ready(function() {
     }
 
     function twentychoice(){
-        $('.yes40').off();
-        $('.no40').off();
-        $('.yes40').on();
-        $('.no40').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT IT OUT</br>Option 2: ATTACK</br>");
@@ -1053,11 +954,8 @@ $(document).ready(function() {
     }
 
     function twentytwentychoice(){
-        $('.yes42').off();
-        $('.no42').off();
-        $('.yes42').on();
-        $('.no42').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK AT SECURITY SCREENS AGAIN</br>Option 2: SEARCH THE ROOM</br>");
@@ -1078,11 +976,8 @@ $(document).ready(function() {
     }
 
     function twentyonechoice(){
-        $('.yes43').off();
-        $('.no43').off();
-        $('.yes43').on();
-        $('.no43').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: MOVE BACKWARD</br>Option 2: MOVE FORWARD</br>");
@@ -1101,11 +996,8 @@ $(document).ready(function() {
     }
 
     function twentyoneonechoice(){
-        $('.yes44').off();
-        $('.no44').off();
-        $('.yes44').on();
-        $('.no44').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE CHECKING THE ROOM</br>Option 2: OPEN A COFFIN</br>");
@@ -1123,11 +1015,8 @@ $(document).ready(function() {
     }
 
     function twentytwochoice(){
-        $('.yes45').off();
-        $('.no45').off();
-        $('.yes45').on();
-        $('.no45').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LEAVE THROUGH THE DOOR I ENTERED</br>Option 2: OPEN A COFFIN</br>");
@@ -1249,11 +1138,8 @@ $(document).ready(function() {
     }
 
     function downstairsone(){
-        $('.yes46').off();
-        $('.no46').off();
-        $('.yes46').on();
-        $('.no46').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
         $("#textInput").hide();
 		revealOptions();
 		
@@ -1273,11 +1159,8 @@ $(document).ready(function() {
     }
 
     function downstairsoneone(){
-        $('.yes47').off();
-        $('.no47').off();
-        $('.yes47').on();
-        $('.no47').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE DOWN THE STAIRS</br>Option 2: SIT DOWN</br>");
@@ -1298,11 +1181,8 @@ $(document).ready(function() {
     }
 
     function downstairstwo(){
-        $('.yes48').off();
-        $('.no48').off();
-        $('.yes48').on();
-        $('.no48').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: TALK</br>");
@@ -1321,11 +1201,8 @@ $(document).ready(function() {
     }
 
     function downstairsthree(){
-        $('.yes49').off();
-        $('.no49').off();
-        $('.yes49').on();
-        $('.no49').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SHOOT</br>Option 2: ORDER HIM TO DROP KNIFE</br>");
@@ -1344,11 +1221,8 @@ $(document).ready(function() {
     }
 
     function downstairsfour(){
-        $('.yes50').off();
-        $('.no50').off();
-        $('.yes50').on();
-        $('.no50').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TIE HIM UP</br>Option 2: WALK PAST HIM</br>");
@@ -1367,11 +1241,8 @@ $(document).ready(function() {
     }
 
     function downstairsfourfour(){
-        $('.yes51').off();
-        $('.no51').off();
-        $('.yes51').on();
-        $('.no51').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE ROOM</br>Option 2: LOOK FOR A WAY OUT</br>");
@@ -1392,11 +1263,8 @@ $(document).ready(function() {
     }
 
     function downstairsfourfourfour(){
-        $('.yes52').off();
-        $('.no52').off();
-        $('.yes52').on();
-        $('.no52').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: OPEN THE DOOR TO THE LEFT</br>Option 2: OPEN THE DOOR TO THE RIGHT</br>");
@@ -1421,11 +1289,8 @@ $(document).ready(function() {
     }
 
     function downstairsfive(){
-        $('.yes53').off();
-        $('.no53').off();
-        $('.yes53').on();
-        $('.no53').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT FOR THEM TO ARRIVE AND FIGHT</br>Option 2: HEAD INTO THE DARKNESS</br>");
@@ -1444,11 +1309,8 @@ $(document).ready(function() {
     }
 
     function downstairsfivefive(){
-        $('.yes54').off();
-        $('.no54').off();
-        $('.yes54').on();
-        $('.no54').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SWING MY AX</br>Option 2: STAY STILL</br>");
@@ -1469,11 +1331,8 @@ $(document).ready(function() {
     }
 
     function downstairssix(){
-        $('.yes55').off();
-        $('.no55').off();
-        $('.yes55').on();
-        $('.no55').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK THE MEN</br>Option 2: ATTACK THE BEAST</br>");
@@ -1492,11 +1351,8 @@ $(document).ready(function() {
     }
 
     function downstairssixsix(){
-        $('.yes56').off();
-        $('.no56').off();
-        $('.yes56').on();
-        $('.no56').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE HALLWAY</br>Option 2: GO THROUGH THE DOOR</br>");
@@ -1517,11 +1373,8 @@ $(document).ready(function() {
     }
 
     function downstairsseven(){
-        $('.yes57').off();
-        $('.no57').off();
-        $('.yes57').on();
-        $('.no57').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: SHOOT THE MAN</br>Option 2: RUN FOR THE FENCE</br>");
@@ -1540,11 +1393,8 @@ $(document).ready(function() {
     }
 
     function endone(){
-        $('.yes58').off();
-        $('.no58').off();
-        $('.yes58').on();
-        $('.no58').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: GO THROUGH THE FENCE FIRST</br>Option 2: LET JESSICA GO THROUGH FIRST</br>");
@@ -1563,11 +1413,8 @@ $(document).ready(function() {
     }
 
     function endtwo(){
-        $('.yes59').off();
-        $('.no59').off();
-        $('.yes59').on();
-        $('.no59').on();
-        $('#buttonYes').hide();
+        buttonReset();
+
 		revealOptions();
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: FIGHT THEM</br>Option 2: RUN INTO THE BUILDING</br>");
@@ -1595,11 +1442,8 @@ $(document).ready(function() {
     }
 
     function finalone(){
-        $('.yes60').off();
-        $('.no60').off();
-        $('.yes60').on();
-        $('.no60').on();
-        $('#buttonYes').hide();
+        buttonReset();
+		
 		revealOptions();
 		
         addToInstructions("Please click 'submit'<br>");
