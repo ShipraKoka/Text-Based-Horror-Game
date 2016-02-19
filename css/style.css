@@ -29,9 +29,14 @@ body {
     width: 90%;
     background-color: black;
 }
- 
+
 #intro {
     font-size: 60px;
+}
+
+#time {
+	font-size: 50px;
+	color: #cd0f0f;
 }
 
 #button {

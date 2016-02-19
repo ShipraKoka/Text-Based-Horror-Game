@@ -151,11 +151,31 @@ $(document).ready(function() {
            $('#buttonReveal').show();
        }, 500);
        $('#buttonReveal').one('click', function () {
-           startScrollPageDownLoop;
-           $('#buttonOptions').show();           
-           endScrollPageDownLoop;
+			startScrollPageDownLoop;
+			$("#buttonReveal").hide();
+			$('#buttonOptions').show();   
+			var sevenSeconds = 7;
+			clock = $("#time");
+			startTimer(sevenSeconds, clock);		   
+			endScrollPageDownLoop;
        });
    }
+	
+	function startTimer(duration, clock){
+		var countdown = setInterval(function(){
+			clock.text("Time is running out! " +duration);
+			if (--duration < 0){
+				clearInterval(countdown);
+				clock.text("");
+				deadanddead("I couldn't make a decision in time and this is the end of my story.", progress)
+			} else {
+				$("#yes, #no").click(function(){
+					clearInterval(countdown);
+					clock.text("");
+				});
+			}
+		}, 1000);
+	}
 
     function play(){
         $("#textInput").hide();
