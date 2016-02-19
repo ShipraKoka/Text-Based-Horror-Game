@@ -146,7 +146,7 @@ $(document).ready(function() {
    }
 
 
-   function revealOptions() {
+   function revealOptions(progress) {
        window.setTimeout(function () {
            $('#buttonReveal').show();
        }, 500);
@@ -156,12 +156,12 @@ $(document).ready(function() {
 			$('#buttonOptions').show();   
 			var sevenSeconds = 7;
 			clock = $("#time");
-			startTimer(sevenSeconds, clock);		   
+			startTimer(sevenSeconds, clock, progress);		   
 			endScrollPageDownLoop;
        });
    }
 	
-	function startTimer(duration, clock){
+	function startTimer(duration, clock, progress){
 		var countdown = setInterval(function(){
 			clock.text("Time is running out! " +duration);
 			if (--duration < 0){
@@ -225,7 +225,7 @@ $(document).ready(function() {
     function firstchoice() {
         buttonReset();
 		
-		revealOptions();
+		revealOptions(firstchoice);
 		
         addToInstructions("^1000<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br>  ");
 
@@ -247,7 +247,7 @@ $(document).ready(function() {
     function firstfirstchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(firstfirstchoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: LEAVE THE HATCHET</br>Option 2: PICK UP THE HATCHET</br> ");
         $(".yes4").one("click",function(){
@@ -270,7 +270,7 @@ $(document).ready(function() {
     function secondchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(secondchoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: RUN</br> ");
         $(".yes5").one("click",function(){
@@ -290,7 +290,7 @@ $(document).ready(function() {
     function thirdchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(thirdchoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: RUN</br> ");
         $(".yes6").one("click",function(){
@@ -310,7 +310,7 @@ $(document).ready(function() {
     function thirdthirdchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(thirdthirdchoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: HEAD TOWARD THE HOUSE</br>Option 2: EXAMINE THE BODY</br> ");
         $(".yes7").one("click",function() {
@@ -332,7 +332,7 @@ $(document).ready(function() {
     function fourthchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(fourthchoice);
 		
         addToInstructions("<br>I reached the porch. I tried to open the front door but the door was locked. If I had tried running from my attacker earlier, I would have been met with a latched door. There was a window on the right and one on the left. I could hear more rustling in the distance.<br><br>WHAT DID I DO?<br>Option 1: OPEN A WINDOW<br>Option 2: STAY OUTSIDE THE HOUSE<br> ");
         $(".yes8").one("click",function() {
@@ -351,7 +351,7 @@ $(document).ready(function() {
     function fourthfourthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(fourthfourthchoice);
 		
         addToInstructions("<br>Option 1: OPEN THE LEFT WINDOW</br>Option 2: OPEN THE RIGHT WINDOW</br> ");
         $(".yes9").one("click",function(){
@@ -374,7 +374,7 @@ $(document).ready(function() {
     function fifthchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(fifthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: OPEN THE DOOR LEADING TOWARD THE NOISE<br>Option 2: GO THROUGH THE DOOR LEADING AWAY FROM THE NOISE<br> ");
         $(".yes10").one("click",function() {
@@ -393,7 +393,7 @@ $(document).ready(function() {
     function fifthfifthchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(fifthfifthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: HIDE UNDER THE TABLE<br>Option 2: HIDE IN THE CLOSET<br> ");
         $(".yes11").one("click",function(){
@@ -411,7 +411,7 @@ $(document).ready(function() {
     function sixthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(sixthchoice);
 		
         addToInstructions("I hid and a man entered the room. He had a white shirt on with red stains. He wore a torn sack on his head and carried a double barreled shotgun. I held my breath. Lucky for me the man quickly stepped through the kitchen. He knocked over some chairs and arrived at a staircase and a door. He chose the door and exited the room. I waited until I no longer heard him. \"I need a gun\" I thought.</br>WHAT DID I DO?</br>Option 1: GO UP THE STAIRS</br>Option 2: FOLLOW THE MAN WITH THE SHOTGUN</br> ");
         $(".yes12").one("click",function(){
@@ -431,7 +431,7 @@ $(document).ready(function() {
     function seventhchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(seventhchoice);
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: USE THE CANDLE TO START A FIRE<br>Option 2: KEEP EXPLORING THE HALLWAY<br> ", function(){
         });
@@ -453,7 +453,7 @@ $(document).ready(function() {
 
         $('.yes14').off();
         $('.no14').off();
-		revealOptions();
+		revealOptions(eigthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: RESCUE THE WOMAN</br>Option 2: LEAVE HER</br>");
         $(".yes14").one("click",function(){
@@ -473,7 +473,7 @@ $(document).ready(function() {
     function eigtheigthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(eigtheigthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: TALK WITH THE WOMAN</br>Option 2: INSPECT THE BODY</br>");
         $(".yes15").one("click",function(){
@@ -495,7 +495,7 @@ $(document).ready(function() {
     function eigtheigtheigtheigthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(eigtheigtheigtheigthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: TALK MORE WITH THE WOMAN</br>Option 2: LEAVE THE ROOM</br>");
         $(".yes16").one("click",function(){
@@ -516,7 +516,7 @@ $(document).ready(function() {
     function eigtheigtheigthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(eigtheigtheigthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: YES, LEAVE WITH THE WOMAN</br>Option 2: NO, LEAVE HER BEHIND</br>");
         $(".yes17").one("click",function(){
@@ -538,7 +538,7 @@ $(document).ready(function() {
     function ninthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(ninthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: GIVE JESSICA MY HATCHET</br>Option 2: KEEP BOTH WEAPONS TO MYSELF</br>");
         $(".yes18").one("click",function(){
@@ -559,7 +559,7 @@ $(document).ready(function() {
     function ninthninthchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(ninthninthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: DODGE HIM<br>Option 2: ATTACK HIM<br>");
         $(".yes19").one("click",function(){
@@ -579,7 +579,7 @@ $(document).ready(function() {
     function tenthchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(tenthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: EXPLORE THE BACK OF THE ROOM<br>Option 2: HEAD OUT THE DOOR I CAME IN");
         $(".yes20").one("click",function(){
@@ -599,7 +599,7 @@ $(document).ready(function() {
     function tenthtenthchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(tenthtenthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: HEAD UP FIRST<br>Option 2: HAVE JESSICA LEAD<br>Hit 1 or 2");
         $(".yes21").one("click",function(){
@@ -621,7 +621,7 @@ $(document).ready(function() {
     function eleventhchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(eleventhchoice);
 		
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: INSPECT THE BOOKS<br>Option 2: INSPECT THE BODY<br>Hit 1 or 2");
         $(".yes22").one("click",function(){
@@ -641,7 +641,7 @@ $(document).ready(function() {
     function twelfthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(twelfthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: READ THE NOTE</br>Option 2: INSPECT THE BOOKS</br>");
         $(".yes23").one("click",function(){
@@ -661,7 +661,7 @@ $(document).ready(function() {
     function twelftwelfchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(twelftwelfchoice);
 		
         addToInstructions("WHAT DID I DO?</br>Option 1: HEAD TOWARD THE UNEXPLORED DOOR</br>Option 2: GO BACK FROM WHER WE CAME</br>");
         $(".yes24").one("click",function(){
@@ -681,7 +681,7 @@ $(document).ready(function() {
     function thirteenthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(thirteenthchoice);
 		
         addToInstructions("WHAT DID I DO?</br>Option 1: GO FOR THE DOOR</br>Option 2: GRAB A BOOK</br>");
         $(".yes25").one("click",function(){
@@ -701,7 +701,7 @@ $(document).ready(function() {
     function thirteenththirteenthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(thirteenththirteenthchoice);
 		
         addToInstructions("WHAT DID I DO?</br>Option 1: CHECK OUT THE ROOM</br>Option 2: TALK TO JESSICA</br>");
         $(".yes26").one("click",function(){
@@ -723,7 +723,7 @@ $(document).ready(function() {
     function thirteenonechoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(thirteenonechoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: OPEN THE DOOR</br>Option 2: TALK TO JESSICA</br>");
         $(".yes27").one("click",function(){
@@ -743,7 +743,7 @@ $(document).ready(function() {
     function thirteentwochoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(thirteentwochoice);
 		
         addToInstructions("WHAT DID I DO?</br>Option 1: SCAN THE ROOM</br>Option 2: SEARCH FOR A DOOR OUT</br>");
         $(".yes28").one("click",function(){
@@ -771,7 +771,7 @@ $(document).ready(function() {
     function thirteenththirteenththirteenthchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(thirteenththirteenththirteenthchoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: IGNORE THEM</br>Option 2: TALK WITH THEM</br>");
         $(".yes29").one("click",function(){
@@ -793,7 +793,7 @@ $(document).ready(function() {
     function fourteenthchoice() {
         buttonReset();
 
-		revealOptions();
+		revealOptions(fourteenthchoice);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: ATTACK THEM</br>Option 2: TALK WITH THEM</br>");
         $(".yes30").one("click",function(){
@@ -813,7 +813,7 @@ $(document).ready(function() {
     function firstfifteenthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(firstfifteenthchoice);
 		
         addToInstructions("<br>I opened the door, let Jessica in and shut it behind us. I then locked it. Glad to be away from that room. \"This is a nightmare,\" I said. Jessica fell to the floor and rested against the wall. I sat next to her. She was shaking. \"What...is...happening...here?\" She trembled. \"I\'ve never heard of or seen such filth and such deplorableness...\" She asked me, \"What were those people doing? Why were they mauled?\" I looked at her and tried to think of something comforting to say. But nothing intelligent entered my mind. I sat, confused and upset.</br>WHAT DID I DO?</br>Option 1: SIT IN SILENCE</br>Option 2: TALK WITH JESSICA</br>");
         $(".yes31").one("click",function(){
@@ -835,7 +835,7 @@ $(document).ready(function() {
     function fifteenthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(fifteenthchoice);
 		
         addToInstructions("</br>I opened the door, let Jessica in and shut it behind us. I then locked it. Glad to be away from that room. \"This is a nightmare,\" I said. Jessica fell to the floor and rested against the wall. I sat next to her. She was shaking. \"What...is...happening...here?\" She trembled. \"I\'ve never heard of or seen such filth and such deplorableness...\" I looked at her and tried to think of something comforting to say. But nothing intelligent entered my mind. All I knew is that we couldn\'t sit here. \"We need to get out of this torment.\" I looked over the room. It was small. There were two doors. One door with light coming from the bottom. The other door had a cool breeze and no light on the bottom.</br>WHAT DID I DO?</br>Option 1: ENTER THE ROOM WITH THE BREEZE</br>Option 2: ENTER THE DOOR WITH THE LIGHT</br>");
         $(".yes32").one("click",function(){
@@ -855,7 +855,7 @@ $(document).ready(function() {
     function sixteenthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(sixteenthchoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CLIMB THE FENCE</br>Option 2: TAKE THE PATH TO THE DOOR</br>");
         $(".yes33").one("click",function(){
@@ -875,7 +875,7 @@ $(document).ready(function() {
     function seventeenthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(seventeenthchoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK FOR THE KEY</br>Option 2: KICK THE DOOR DOWN</br>");
         $(".yes34").one("click",function(){
@@ -895,7 +895,7 @@ $(document).ready(function() {
     function seventeenthseventeenthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(seventeenthseventeenthchoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CALL FOR HELP</br>Option 2: ATTACK WHATEVER WAS ON TOP OF ME</br>");
         $(".yes35").one("click",function(){
@@ -917,7 +917,7 @@ $(document).ready(function() {
     function eighteenthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(eighteenthchoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TURN THE SCREENS ON?</br>Option 2: LEAVE THEM BE?</br>");
         $(".yes36").one("click",function(){
@@ -937,7 +937,7 @@ $(document).ready(function() {
     function nineteenthchoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(nineteenthchoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: HIDE</br>Option 2: PREPARE TO ATTACK</br>");
         $(".yes39").one("click",function(){
@@ -956,7 +956,7 @@ $(document).ready(function() {
     function twentychoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(twentychoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT IT OUT</br>Option 2: ATTACK</br>");
         $(".yes40").one("click",function(){
@@ -976,7 +976,7 @@ $(document).ready(function() {
     function twentytwentychoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(twentytwentychoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK AT SECURITY SCREENS AGAIN</br>Option 2: SEARCH THE ROOM</br>");
         $(".yes42").one("click",function(){
@@ -998,7 +998,7 @@ $(document).ready(function() {
     function twentyonechoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(twentyonechoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: MOVE BACKWARD</br>Option 2: MOVE FORWARD</br>");
         $(".yes43").one("click",function(){
@@ -1018,7 +1018,7 @@ $(document).ready(function() {
     function twentyoneonechoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(twentyoneonechoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE CHECKING THE ROOM</br>Option 2: OPEN A COFFIN</br>");
         $(".yes44").one("click",function(){
@@ -1037,7 +1037,7 @@ $(document).ready(function() {
     function twentytwochoice(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(twentytwochoice);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LEAVE THROUGH THE DOOR I ENTERED</br>Option 2: OPEN A COFFIN</br>");
         $(".yes45").one("click",function(){
@@ -1161,7 +1161,7 @@ $(document).ready(function() {
         buttonReset();
 
         $("#textInput").hide();
-		revealOptions();
+		revealOptions(downstairsone);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: BLOCK THE DOOR WITH A COFFIN</br>Option 2: HIDE IN A COFFIN</br>");
         $(".yes46").one("click",function(){
@@ -1181,7 +1181,7 @@ $(document).ready(function() {
     function downstairsoneone(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairsoneone);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE DOWN THE STAIRS</br>Option 2: SIT DOWN</br>");
         $(".yes47").one("click",function(){
@@ -1203,7 +1203,7 @@ $(document).ready(function() {
     function downstairstwo(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairstwo);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: TALK</br>");
         $(".yes48").one("click",function(){
@@ -1223,7 +1223,7 @@ $(document).ready(function() {
     function downstairsthree(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairsthree);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SHOOT</br>Option 2: ORDER HIM TO DROP KNIFE</br>");
         $(".yes49").one("click",function(){
@@ -1243,7 +1243,7 @@ $(document).ready(function() {
     function downstairsfour(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairsfour);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TIE HIM UP</br>Option 2: WALK PAST HIM</br>");
         $(".yes50").one("click",function(){
@@ -1263,7 +1263,7 @@ $(document).ready(function() {
     function downstairsfourfour(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairsfourfour);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE ROOM</br>Option 2: LOOK FOR A WAY OUT</br>");
         $(".yes51").one("click",function(){
@@ -1285,7 +1285,7 @@ $(document).ready(function() {
     function downstairsfourfourfour(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairsfourfourfour);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: OPEN THE DOOR TO THE LEFT</br>Option 2: OPEN THE DOOR TO THE RIGHT</br>");
         $(".yes52").one("click",function(){
@@ -1311,7 +1311,7 @@ $(document).ready(function() {
     function downstairsfive(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairsfive);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT FOR THEM TO ARRIVE AND FIGHT</br>Option 2: HEAD INTO THE DARKNESS</br>");
         $(".yes53").one("click",function(){
@@ -1331,7 +1331,7 @@ $(document).ready(function() {
     function downstairsfivefive(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairsfivefive);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SWING MY AX</br>Option 2: STAY STILL</br>");
         $(".yes54").one("click",function(){
@@ -1353,7 +1353,7 @@ $(document).ready(function() {
     function downstairssix(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairssix);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK THE MEN</br>Option 2: ATTACK THE BEAST</br>");
         $(".yes55").one("click",function(){
@@ -1373,7 +1373,7 @@ $(document).ready(function() {
     function downstairssixsix(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairssixsix);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE HALLWAY</br>Option 2: GO THROUGH THE DOOR</br>");
         $(".yes56").one("click",function(){
@@ -1395,7 +1395,7 @@ $(document).ready(function() {
     function downstairsseven(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(downstairsseven);
 		
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: SHOOT THE MAN</br>Option 2: RUN FOR THE FENCE</br>");
         $(".yes57").one("click",function(){
@@ -1415,7 +1415,7 @@ $(document).ready(function() {
     function endone(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(endone);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: GO THROUGH THE FENCE FIRST</br>Option 2: LET JESSICA GO THROUGH FIRST</br>");
         $(".yes58").one("click",function(){
@@ -1435,7 +1435,7 @@ $(document).ready(function() {
     function endtwo(){
         buttonReset();
 
-		revealOptions();
+		revealOptions(endtwo);
 		
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: FIGHT THEM</br>Option 2: RUN INTO THE BUILDING</br>");
         $(".yes59").one("click",function(){
@@ -1464,7 +1464,7 @@ $(document).ready(function() {
     function finalone(){
         buttonReset();
 		
-		revealOptions();
+		revealOptions(finalone);
 		
         addToInstructions("Please click 'submit'<br>");
         $(".yes60").one("click",function(){
