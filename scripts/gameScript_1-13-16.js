@@ -162,7 +162,7 @@ $(document).ready(function() {
    }
 	
 	function startTimer(duration, clock, progress){
-		var countdown = setInterval(function(){
+		var countdown = setInterval(function seconds(){
 			clock.text("Time is running out! " +duration);
 			if (--duration < 0){
 				clearInterval(countdown);
@@ -174,7 +174,8 @@ $(document).ready(function() {
 					clock.text("");
 				});
 			}
-		}, 1000);
+			return seconds;
+		}(), 1000);
 	}
 
     function play(){
