@@ -70,10 +70,10 @@ $(document).ready(function() {
         play();
     }
 
-     function addToInstructions(newInstruction, callback) {
+          function addToInstructions(newInstruction, callback) {
        $("#buttonOptions").hide();
        startScrollPageDownLoop();
-       $('<p></p>').appendTo($("#instructions")).typed({ strings : [newInstruction], typeSpeed : 0, callback : function() {
+       $('<p></p>').appendTo($("#instructions")).typed({ strings : [filter_text_options_out(newInstruction)], typeSpeed : 0, callback : function() {
            endScrollPageDownLoop();
            callback && callback();
            options(newInstruction)
@@ -81,7 +81,7 @@ $(document).ready(function() {
    }
 
 	function options(input){
-	
+	//adds options to buttons
     	var option_one_start = false;
     	var option_two_start = false;
     	var opt1 = "";
@@ -127,6 +127,66 @@ $(document).ready(function() {
     
     
 }
+
+     function filter_text_options_out(input){ 
+		//filters options out of text
+	   var input2 = reverse(input);
+       var arrow = 0;
+       var save = false;
+	   var save2 = false;
+	   var string = "";
+	   for (var i = 0, len = input2.length; i < len; i++) 
+        {
+			
+			if (input2.charAt(i) === "<" && i < 155) 
+            {
+                
+				arrow = arrow + 1;
+				
+            }
+			
+			if (input2.charAt(i) === ":") 
+            {
+                
+				save2 = true;
+				
+            }
+			
+			if (arrow === 4 && i < 155) 
+            {
+                save = true;
+            }
+			if (save === true) 
+            {
+                string = string + input2.charAt(i);
+            }
+			if(i === len - 1 && save === true && save2 === true)
+            {
+				
+                return reverse(string.replace("<", "").replace("", "").replace("/", "").replace(">rb<", "").replace("^", "").replace("0001", "").replace("&", ""));
+            }
+            else if(i === len - 1 && save2 === false)
+            {
+                return reverse(input2);
+            }
+		}
+}
+    
+	function reverse(s) {
+	//reverses order of strings. i needed it for my filter_text_options_out(input) function 
+  var o = '';
+
+  for (var i = s.length - 1; i >= 0; i--)
+
+    o += s[i];
+
+  return o;
+
+}
+   
+   
+   
+   
 
    function startScrollPageDownLoop() {
        scrollDownPageLoop = window.setInterval(scrollPageDown, 750);
