@@ -413,7 +413,7 @@ $(document).ready(function() {
 
 		revealOptions(fourthfourthchoice);
 		
-        addToInstructions("<br>Option 1: OPEN THE LEFT WINDOW</br>Option 2: OPEN THE RIGHT WINDOW</br> ");
+        addToInstructions("<br>Option 1: OPEN THE LEFT WINDOW</br></br>Option 2: OPEN THE RIGHT WINDOW</br> ");
         $(".yes9").one("click",function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
