@@ -879,7 +879,7 @@ $(document).ready(function() {
         $(".yes31").one("click",function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
-                    addToInstructions("<p>I looked around the room we were in. It was small and undecorated. It was wild to me that this \'house\' had so many elements. It didn't mesh well: a library, an old-fashioned dining room, a labratory... I still didn't know where I was or how I got here exactly. I looked up and checked out the room we were in. </p>", function(){
+                    addToInstructions("<p>I looked around the room we were in. It was small and undecorated. It was wild to me that this \'house\' had so many elements. It didn't mesh well; a library, an old-fashioned dining room, a labratory... I still didn't know where I was or how I got here exactly. I looked up and checked out the room we were in. </p>", function(){
                         fifteenthchoice();
                     });
                 });
