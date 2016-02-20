@@ -641,7 +641,7 @@ $(document).ready(function() {
 
 		revealOptions(tenthchoice);
 		
-        addToInstructions("<br>WHAT DID I DO?<br>Option 1: EXPLORE THE BACK OF THE ROOM<br>Option 2: HEAD OUT THE DOOR I CAME IN");
+        addToInstructions("<br>WHAT DID I DO?<br>Option 1: EXPLORE THE BACK OF THE ROOM<br>Option 2: HEAD OUT THE DOOR I CAME IN<br>");
         $(".yes20").one("click",function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
