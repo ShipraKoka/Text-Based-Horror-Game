@@ -651,7 +651,7 @@ $(document).ready(function() {
             });
         $(".no20").one("click",function() {
 			$('#buttonReveal').hide();
-                msg = "<p>Jessica and I went out the door. In the hallway was a crowd of men, wearing similar red robes to the man with the pistol. I immediately began firing my pistol but there was a problem: they had guns too. And this is the end of my story.</p>";
+                msg = "<p>Jessica and I went out the door. In the hallway was a crowd of men, wearing similar red robes to the man with the pistol. I immediately began firing my pistol but there was a problem; they had guns too. And this is the end of my story.</p>";
                 deadanddead(msg, tenthchoice);
             });
         }
