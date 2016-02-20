@@ -1552,6 +1552,7 @@ $(document).ready(function() {
         $('#no').off();
         $('.yesDead').off();
         $('.noDead').off();
+        document.getElementById('laugh').play();
         
         addToInstructions(why+"<br> I died. <br>Would you like to play again? <br> ");
             $(".yesDead").one("click",function(){
