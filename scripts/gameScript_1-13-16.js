@@ -70,7 +70,7 @@ $(document).ready(function() {
         play();
     }
 
-          function addToInstructions(newInstruction, callback) {
+             function addToInstructions(newInstruction, callback) {
        $("#buttonOptions").hide();
        startScrollPageDownLoop();
        $('<p></p>').appendTo($("#instructions")).typed({ strings : [filter_text_options_out(newInstruction)], typeSpeed : 0, callback : function() {
@@ -183,7 +183,6 @@ $(document).ready(function() {
   return o;
 
 }
-   
    
    
    
