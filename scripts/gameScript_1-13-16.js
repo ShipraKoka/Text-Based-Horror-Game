@@ -743,7 +743,7 @@ $(document).ready(function() {
 
 		revealOptions(thirteenthchoice);
 		
-        addToInstructions("WHAT DID I DO?</br>Option 1: GO FOR THE DOOR</br>Option 2: GRAB A BOOK</br>");
+        addToInstructions("</br>WHAT DID I DO?</br>Option 1: GO FOR THE DOOR</br>Option 2: GRAB A BOOK</br>");
         $(".yes25").one("click",function(){
 			$('#buttonReveal').hide();
                     msg="<p>I ran toward the door and was shot in the back. I saw Jessica go down as well. A bullet had torn through her head. I felt an unbearable pain and burning in my lower back. I grabbed a book, the spikes came down. I figured if I was going, I was taking them with me. And this is the end of my story. </p>";
@@ -763,7 +763,7 @@ $(document).ready(function() {
 
 		revealOptions(thirteenththirteenthchoice);
 		
-        addToInstructions("WHAT DID I DO?</br>Option 1: CHECK OUT THE ROOM</br>Option 2: TALK TO JESSICA</br>");
+        addToInstructions("</br>WHAT DID I DO?</br>Option 1: CHECK OUT THE ROOM</br>Option 2: TALK TO JESSICA</br>");
         $(".yes26").one("click",function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
@@ -805,7 +805,7 @@ $(document).ready(function() {
 
 		revealOptions(thirteentwochoice);
 		
-        addToInstructions("WHAT DID I DO?</br>Option 1: SCAN THE ROOM</br>Option 2: SEARCH FOR A DOOR OUT</br>");
+        addToInstructions("</br>WHAT DID I DO?</br>Option 1: SCAN THE ROOM</br>Option 2: SEARCH FOR A DOOR OUT</br>");
         $(".yes28").one("click",function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
