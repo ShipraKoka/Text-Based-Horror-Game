@@ -1069,7 +1069,7 @@ $(document).ready(function() {
         $(".no43").one("click",function() {
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
-                    addToInstructions('Jessica and I opened the door and made our way into the coffined room. It was rancid. The floor was concrete and the walls and ceiling were stone. Each coffin was numbered with gold lettering; 1-17. Jessica eyed the room with her hand on her face. On one of the walls I saw what looked to be hand-smeared blood. The blood messily spelled out three sets of numbers: "3" "17" "5"...', function(){
+                    addToInstructions('Jessica and I opened the door and made our way into the coffined room. It was rancid. The floor was concrete and the walls and ceiling were stone. Each coffin was numbered with gold lettering; 1-17. Jessica eyed the room with her hand on her face. On one of the walls I saw what looked to be hand-smeared blood. The blood messily spelled out three sets of numbers; "3" "17" "5"...', function(){
                         twentyoneonechoice();
                     });
                 });
