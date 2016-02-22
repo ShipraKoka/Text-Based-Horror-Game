@@ -279,7 +279,7 @@
 
     var currentChapter = 0;
     var resurrected = false;
-        
+            
     function choices() {
         if (story[currentChapter].death) {
             
@@ -311,9 +311,18 @@
                     // $('.yesDead').off();
                     // $('.noDead').off();                   
                     return;
-                });               
-                
+                }); 
             });                
+        }
+        else if (story[currentChapter].options == "") {
+
+            $("#buttonYes").hide();
+            $("#buttonOptions").hide();
+
+            addToInstructions(story[currentChapter].chapter, function () {
+                currentChapter = currentChapter + story[currentChapter].option1;
+                choices();
+            });
         }
         else
         {
@@ -323,15 +332,7 @@
             console.log("not death");
 
             if (!resurrected) {
-                if (story[currentChapter].options == "") {
-                    addToInstructions(story[currentChapter].chapter);
-                    currentChapter = currentChapter + story[currentChapter].option1;
-                    choices();
-                }
-                else
-                {
-                    addToInstructions(story[currentChapter].chapter, function () { revealOptions(); });
-                };
+                addToInstructions(story[currentChapter].chapter, function () { revealOptions(); });
             }
             else
             {
