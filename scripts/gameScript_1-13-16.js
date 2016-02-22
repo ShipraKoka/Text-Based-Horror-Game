@@ -70,13 +70,13 @@ $(document).ready(function() {
         play();
     }
 
-             function addToInstructions(newInstruction, callback) {
+    function addToInstructions(newInstruction, callback) {
        $("#buttonOptions").hide();
        startScrollPageDownLoop();
        $('<p></p>').appendTo($("#instructions")).typed({ strings : [filter_text_options_out(newInstruction)], typeSpeed : 0, callback : function() {
            endScrollPageDownLoop();
            callback && callback();
-           options(newInstruction)
+           options(newInstruction);
        }});
    }
 
@@ -90,43 +90,36 @@ $(document).ready(function() {
     	for (var i = 0, len = input.length; i < len; i++) 
         {
 			
-        if (input.charAt(i) === ":") 
-        {
-            option_one_start = true;
-        }
-        if (option_one_start === true && option_two_start === false )
-        {
-            if (input.charAt(i) === "<")
+            if (input.charAt(i) === ":") 
             {
-                option_two_start = true;
-                option_one_start = false;
-		opt1 = opt1.replace(": ", "").replace("<", "");
-                $("#yes").html(opt1);
-		
+                option_one_start = true;
             }
-
-            opt1 += input.charAt(i);
-            
-        }
+            if (option_one_start === true && option_two_start === false )
+            {
+                if (input.charAt(i) === "<")
+                {
+                    option_two_start = true;
+                    option_one_start = false;
+		            opt1 = opt1.replace(": ", "").replace("<", "");
+                    $("#yes").html(opt1);		
+                }
+                opt1 += input.charAt(i);            
+            }
         
         
-        if (option_one_start === true && option_two_start === true)
-        {
-            if (input.charAt(i) === "<")
+            if (option_one_start === true && option_two_start === true)
             {
-                option_two_start = false;
-                option_one_start = false;
-		opt2 = opt2.replace(": ", "").replace("<", "");
-                $("#no").html(opt2);
-		
+                if (input.charAt(i) === "<")
+                {
+                    option_two_start = false;
+                    option_one_start = false;
+		            opt2 = opt2.replace(": ", "").replace("<", "");
+                    $("#no").html(opt2);		
+                }
+                opt2 += input.charAt(i);            
             }
-            opt2 += input.charAt(i);
-            
         }
     }
-    
-    
-}
 
      function filter_text_options_out(input){ 
 		//filters options out of text
@@ -136,20 +129,15 @@ $(document).ready(function() {
 	   var save2 = false;
 	   var string = "";
 	   for (var i = 0, len = input2.length; i < len; i++) 
-        {
-			
+        {			
 			if (input2.charAt(i) === "<" && i < 155) 
-            {
-                
-				arrow = arrow + 1;
-				
+            {               
+				arrow = arrow + 1;				
             }
 			
 			if (input2.charAt(i) === ":") 
-            {
-                
-				save2 = true;
-				
+            {                
+				save2 = true;				
             }
 			
 			if (arrow === 4 && i < 155) 
@@ -160,31 +148,29 @@ $(document).ready(function() {
             {
                 string = string + input2.charAt(i);
             }
-			if(i === len - 1 && save === true && save2 === true)
-            {
-				
+			if (i === len - 1 && save === true && save2 === true)
+			{
+			    console.log(reverse(string.replace("<", "").replace("", "").replace("/", "").replace(">rb<", "").replace("^", "").replace("0001", "").replace("&", "")));
                 return reverse(string.replace("<", "").replace("", "").replace("/", "").replace(">rb<", "").replace("^", "").replace("0001", "").replace("&", ""));
             }
             else if(i === len - 1 && save2 === false)
             {
+                console.log(reverse(input2));
                 return reverse(input2);
             }
-		}
-}
+	   }
+     }
     
 	function reverse(s) {
-	//reverses order of strings. i needed it for my filter_text_options_out(input) function 
-  var o = '';
+        //reverses order of strings. i needed it for my filter_text_options_out(input) function 
+        var o = '';
 
-  for (var i = s.length - 1; i >= 0; i--)
+        for (var i = s.length - 1; i >= 0; i--)
 
-    o += s[i];
+        o += s[i];
 
-  return o;
-
-}
-   
-   
+        return o;
+	}  
    
 
    function startScrollPageDownLoop() {
@@ -380,13 +366,13 @@ $(document).ready(function() {
 			fourthchoice();
 			});
 		});
-            $(".no7").one("click",function() {
-				$('#buttonReveal').hide();
-				$('#buttonOptions').hide();
-				addToInstructions('I turned the face to view it. It was a man. He appeared dirty and unshaven. In his pocket, I found a picture...<br>The picture was of me! Underneath the photo was the word "KILL". "Well, that explains the ax," I muttered.<br>I made my way back to the porch, thankful I had weapons.', function(){
-					fourthchoice();
-				});
+        $(".no7").one("click",function() {
+			$('#buttonReveal').hide();
+			$('#buttonOptions').hide();
+			addToInstructions('I turned the face to view it. It was a man. He appeared dirty and unshaven. In his pocket, I found a picture...<br>The picture was of me! Underneath the photo was the word "KILL". "Well, that explains the ax," I muttered.<br>I made my way back to the porch, thankful I had weapons.', function(){
+				fourthchoice();
 			});
+		});
     }
 
     function fourthchoice() {
