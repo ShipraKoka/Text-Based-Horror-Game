@@ -76,9 +76,31 @@ $(document).ready(function() {
        $('<p></p>').appendTo($("#instructions")).typed({ strings : [filter_text_options_out(newInstruction)], typeSpeed : 0, callback : function() {
            endScrollPageDownLoop();
            callback && callback();
-           options(newInstruction)
+           options(newInstruction);
+           death_option_hide(newInstruction);
        }});
    }
+
+   function death_option_hide(input)
+   {
+       var holding_string = "";
+	   var string = reverse(input);
+       
+       
+        for (i = 0; i < string.length; i++) 
+        {
+            holding_string += string.charAt(i); 
+            if (reverse(holding_string) === "Would you like to play again? <br> ")
+		   { 
+			   $('#buttonYes').show();
+			   document.getElementById('laugh').play();
+               break 
+		   }
+        }
+   }
+   
+   
+
 
 	function options(input){
 	//adds options to buttons
@@ -1550,12 +1572,12 @@ $(document).ready(function() {
     function deadanddead(why, progress){
         $('#textInput').hide();
         $('#buttonOptions').hide();
-        $('#buttonYes').show();
+        $('#buttonYes').hide();
         $('#yes').off();
         $('#no').off();
         $('.yesDead').off();
         $('.noDead').off();
-        document.getElementById('laugh').play();
+        
         
         addToInstructions(why+"<br> I died. <br>Would you like to play again? <br> ");
             $(".yesDead").one("click",function(){
