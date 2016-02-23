@@ -301,6 +301,7 @@ $(document).ready(function() {
         $(".no3").one( "click", function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
+			document.getElementById("gravel").play();
             addToInstructions("I made my way up to the house. It appeared to be old and in need of repairs. Regardless, it held a certain beauty.</br>There looked to be about four stories, each floor big enough to contain a large family. Something gleamed to my left on the path. I looked over and saw a hatchet.", function(){
                 firstfirstchoice();
             });
@@ -420,6 +421,7 @@ $(document).ready(function() {
         $(".yes9").one("click",function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
+			document.getElementById("window").play();
                     addToInstructions("<p>I messed around with the window and it opened with no resistance. I climbed inside and shut the window behind me. For good measure, I locked both windows. I took a moment and viewed the room I was in. It was a large hall. Suddenly a memory flashed... I am an investigator. I was on a major case. What was that case about...? Bang! A loud noise from the next room over. Two doors. One door leading to the noise and another door leading away from it.</p>", function(){
                         fifthchoice();
                     });
@@ -427,6 +429,7 @@ $(document).ready(function() {
         $(".no9").one("click",function() {
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
+			document.getElementById("window").play();
                     addToInstructions("<p>I messed around with the window and it opened with no resistance. I climbed inside and shut the window behind me. For good measure, I locked both windows. I took a moment and viewed the room I was in. It was a large hall. Suddenly a memory flashed... I am an investigator. I was on a major case. What was that case about...? Bang! A loud noise from the next room over. Two doors. One door leading to the noise and another door leading away from it.</p>", function(){
                         fifthchoice();
                     });
@@ -442,6 +445,7 @@ $(document).ready(function() {
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: OPEN THE DOOR LEADING TOWARD THE NOISE<br>Option 2: GO THROUGH THE DOOR LEADING AWAY FROM THE NOISE<br> ");
         $(".yes10").one("click",function() {
 			$('#buttonReveal').hide();
+			document.getElementById("#door").play();
             deadanddead("<br><br>I bravely opened the door that led to the noise. The mystery was instantly solved. There stood a man with a large shotgun in his hands. He wasted no time in taking aim at my body. Not that aim mattered with a gun like that. I quickly threw my hatchet at him. He moved to the left but my hatchet cut his thigh. It delayed the shooter slightly but didn't stop him. He shot. The gun tore through my midsection and this is the end of my story.", fifthchoice);
             });
         $(".no10").one("click",function() {
@@ -486,6 +490,7 @@ $(document).ready(function() {
         });
         $(".no12").one("click",function() {
 			$('#buttonReveal').hide();
+			document.getElementById("door").play();
             msg="I opened the door. Despite my attempts to be quiet, it creaked loudly. I heard shouting and heavy footsteps. The man with the shotgun appeared and before I could defend myself, he blew my head off with a hail of bullets. And this is the end of my story.";
             deadanddead(msg,sixthchoice);
         });
@@ -1555,9 +1560,11 @@ $(document).ready(function() {
         $('#no').off();
         $('.yesDead').off();
         $('.noDead').off();
-        document.getElementById('laugh').play();
-        
-        addToInstructions(why+"<br> I died. <br>Would you like to play again? <br> ");
+        addToInstructions(why+"<br>", function(){
+			document.getElementById('laugh').play();
+			addToInstructions("I died. <br>Would you like to play again? <br> ");
+		});
+		
             $(".yesDead").one("click",function(){
                 addToInstructions("Back into hell you go...");
                 $('.buttonOptions').show();
