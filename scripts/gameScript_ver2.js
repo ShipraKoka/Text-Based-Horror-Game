@@ -281,7 +281,22 @@
     var resurrected = false;
             
     function choices() {
-        if (story[currentChapter].death) {
+        if (story[currentChapter].coffin1) {
+            addToInstructions("</br>I decided to open one of the caskets. Hopefully there was nothing inside...", function(){
+                coffinone();
+            })
+        }
+        else if (story[currentChapter].coffin2) {
+            addToInstructions("</br>I decided to open one of the caskets. Hopefully there was nothing inside...", function () {
+                coffintwo();
+            })
+        }
+        else if (story[currentChapter].coffin3) {
+            addToInstructions("</br>I decided to open one of the caskets. Hopefully there was nothing inside...", function () {
+                coffinthree();
+            })
+        }
+        else if (story[currentChapter].death) {
             
             $('#textInput').hide();
             $('#buttonOptions').hide();
@@ -358,5 +373,108 @@
                 choices();
             });                
         }
-    };
+    }
+
+    function coffinone() {
+        $("#buttonOptions").hide();
+        $("#buttonYes").hide();
+        $("#textInput").show();
+        $("#myText").val('');
+
+        addToInstructions("<br>Which coffin did I open first?</br>choose a numeral from 1-17");
+        $("#button").one("click", function () {
+            var choice = document.getElementById("myText").value;
+            if (choice <= 2 || choice >= 4) {
+                currentChapter = 74;
+                choices();
+            }
+            else if (choice > 17) {
+                addToInstructions("</br></br>Please enter a number between 1-17", function () {
+                    coffinone();
+                });
+            }
+            else if (choice == 3) {
+                addToInstructions("</br>I reached down and opened the lid. There was a note. On it was scrawled \"first step on your path downward.\"", function () {
+                    coffintwo();
+                });
+            }
+            else {
+                addToInstructions("</br></br>Please enter a number between 1-17", function () {
+                    coffinone();
+                });
+            }
+        });
+    }
+
+    function coffintwo() {
+        $("#buttonOptions").hide();
+        $("#buttonYes").hide();
+        $("#textInput").show();
+        $("#myText").val('');
+        addToInstructions("<br>Which coffin did I open second?</br>choose a numeral from 1-17");
+        $("#button").one("click", function () {
+            choice = document.getElementById("myText").value;
+            if (choice != 3 && choice != 17) {
+                currentChapter = 76;
+                choices();
+            }
+            else if (choice == 17) {
+                addToInstructions("</br></br>I reached down and opened the lid. There was another note. \"One more motion toward the depths below.\"", function () {
+                    coffinthree();
+                });
+            }
+            else if (choice == 3) {
+                addToInstructions("</br>I already opened coffin number 3...", function () {
+                    coffintwo();
+                });
+            }
+            else if (choice > 17) {
+                addToInstructions("</br>Please enter a number between 1-17", function () {
+                    coffintwo();
+                });
+            }
+            else {
+                addToInstructions("</br>Please enter a number between 1-17", function () {
+                    coffintwo();
+                });
+            }
+        });
+    }
+
+    function coffinthree() {
+        $("#buttonOptions").hide();
+        $("#buttonYes").hide();
+        $("#textInput").show();
+        $("#myText").val('');
+        addToInstructions("</br>Which coffin did I open third?</br>choose a numeral from 1-17");
+        $("#button").one("click", function () {
+            var choice = document.getElementById("myText").value;
+            if (choice != 3 && choice != 17 && choice != 5) {
+                currentChapter = 78;
+                choices();
+            }
+            else if (choice == 5) {
+                $("#textInput").hide();
+                currentChapter = 79;
+                choices();
+                
+            }
+            else if (choice == 17 || choice == 3) {
+                addToInstructions("</br>I already opened coffin number " + choice + "...", function () {
+                    coffinthree();
+                });
+            }
+            else if (choice > 17) {
+                addToInstructions("Please enter a number between 1-17.", function () {
+                    coffinthree();
+                });
+            }
+            else {
+                addToInstructions("Please enter a number between 1-17.", function () {
+                    coffinthree();
+                });
+            }
+        });
+    }
+
 });
