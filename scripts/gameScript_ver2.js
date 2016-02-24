@@ -192,6 +192,7 @@
     function startTimer(duration, clock, progress) {
         var countdown = setInterval(function seconds() {
             clock.text("Time is running out! " + duration);
+            document.getElementById("ticking").play();
             if (--duration < 0) {
                 clearInterval(countdown);
                 clock.text("");
@@ -203,6 +204,8 @@
                 $('.yesDead').off();
                 $('.noDead').off();
 
+                document.getElementById("ticking").pause();
+
                 addToInstructions("I couldn't make a decision in time and this is the end of my story. <br> I died. <br>Would you like to play again? <br> ", function () {
                     document.getElementById('laugh').play(); 
                     $('#buttonYes').show();
@@ -212,8 +215,7 @@
                     addToInstructions("Back into hell you go...", function () { $('.buttonOptions').show(); });
 
                     $('.buttonYes').hide();
-                    // $('.yesDead').off();
-                    // $('.noDead').off();
+
                     resurrected = true;
                     choices();
                 });
@@ -221,8 +223,7 @@
                 $(".noDead").one("click", function () {
                     $("#buttonYes").hide();
                     addToInstructions("Smart decision. Get out while you still can.", function () {
-                        // $('.yesDead').off();
-                        // $('.noDead').off();
+
                         return;
                     });
                 })
@@ -231,6 +232,7 @@
                 $("#yes, #no").click(function () {
                     clearInterval(countdown);
                     clock.text("");
+                    document.getElementById("ticking").pause();
                 });
             }
             return seconds;
@@ -279,7 +281,23 @@
 
     var currentChapter = 0;
     var resurrected = false;
-                
+
+    function playSound(sound) {
+        switch (sound) {
+            case "gravel":
+                document.getElementById("gravel").play();
+                break;
+            case "window":
+                document.getElementById("window").play();
+                break;
+            case "door":
+                document.getElementById("door").play();
+                break;
+            default:
+                break;
+        }
+    }
+            
     function choices() {
         
         if (story[currentChapter].coffin1) {
@@ -305,7 +323,7 @@
             $('#no').off();
             $('.yesDead').off();
             $('.noDead').off();
-
+            
             addToInstructions(story[currentChapter].chapter + "<br> I died. <br>Would you like to play again? <br> ", function () {
                 document.getElementById('laugh').play();
                 $('#buttonYes').show();
@@ -337,7 +355,7 @@
                 choices();
             });
         }
-        else if (story[currentChapter].options == "" || story[currentChapter].option1 == 0) {
+        else if (story[currentChapter].options == "" && story[currentChapter].option1 == 0) {
 
             $("#buttonYes").hide();
             $("#buttonOptions").hide();
@@ -358,6 +376,7 @@
 
                 story_text = story_text.replace(/playerName/g, name);
 
+                playSound(story[currentChapter].sound);
                 addToInstructions(story_text, function () { revealOptions(); });
             }
             else
@@ -368,8 +387,10 @@
             
             buttonReset();            
 
-            addToInstructions(story[currentChapter].options);
-
+            playSound(story[currentChapter].sound);
+            addToInstructions(story[currentChapter].options);            
+            
+            
             $(".yes3").one("click", function () {
                 $('#buttonReveal').hide();
                 currentChapter = currentChapter + story[currentChapter].option1;
