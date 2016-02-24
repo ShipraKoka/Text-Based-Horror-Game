@@ -209,14 +209,17 @@ $(document).ready(function() {
 	function startTimer(duration, clock, progress){
 		var countdown = setInterval(function seconds(){
 			clock.text("Time is running out! " +duration);
+			document.getElementById("ticking").play();
 			if (--duration < 0){
 				clearInterval(countdown);
 				clock.text("");
+				document.getElementById("ticking").pause();
 				deadanddead("I couldn't make a decision in time and this is the end of my story.", progress)
 			} else {
 				$("#yes, #no").click(function(){
 					clearInterval(countdown);
 					clock.text("");
+					document.getElementById("ticking").pause();
 				});
 			}
 			return seconds;
