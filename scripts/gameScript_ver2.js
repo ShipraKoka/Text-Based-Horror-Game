@@ -277,7 +277,7 @@
         $('#buttonYes').hide();
     }      
 
-    var currentChapter = 27;
+    var currentChapter = 0;
     var resurrected = false;
                 
     function choices() {
