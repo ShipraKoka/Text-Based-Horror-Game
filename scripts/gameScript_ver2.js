@@ -337,6 +337,14 @@
                 choices();
             });
         }
+        else if (story[currentChapter].options == "" || story[currentChapter].option1 == 0) {
+
+            $("#buttonYes").hide();
+            $("#buttonOptions").hide();
+
+            exit();
+           
+        }
         else
         {
             $("#buttonYes").hide();
