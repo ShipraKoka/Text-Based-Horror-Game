@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
     var scrollDownPageLoop;
-
+    
     $(function () {
         var name = "";
         var choice = 0;
@@ -33,7 +33,7 @@
             $("input:text:visible:first").focus();
         });
         $("#button").one("click", function () {
-            name = document.getElementById("myText").value;
+           name = document.getElementById("myText").value;
             if (name !== "") {
                 addToInstructions("Is " + name + " my correct name.", function () { $("#buttonYes").show(); });
                 $('#textInput').val('');
@@ -48,7 +48,7 @@
                 naming();
             }
             $(".yes1").one("click", function () {
-                namingnaming(name);
+                 namingnaming(name);
             });
             $(".no1").one("click", function () {
                 naming();
@@ -277,10 +277,11 @@
         $('#buttonYes').hide();
     }      
 
-    var currentChapter = 0;
+    var currentChapter = 27;
     var resurrected = false;
-            
+                
     function choices() {
+        
         if (story[currentChapter].coffin1) {
             addToInstructions("</br>I decided to open one of the caskets. Hopefully there was nothing inside...", function(){
                 coffinone();
@@ -314,8 +315,6 @@
                 addToInstructions("Back into hell you go...");
                 $('#buttonOptions').show();
                 $('#buttonYes').hide();
-                // $('.yesDead').off();
-                // $('.noDead').off();
                 currentChapter = currentChapter - story[currentChapter].previous;
                 resurrected = true;
                 choices();
@@ -323,8 +322,7 @@
             $(".noDead").one("click", function () {
                 $('#buttonYes').hide();
                 addToInstructions("Smart decision. Get out while you still can.", function () {
-                    // $('.yesDead').off();
-                    // $('.noDead').off();                   
+                 
                     return;
                 }); 
             });                
@@ -347,7 +345,12 @@
             console.log("not death");
 
             if (!resurrected) {
-                addToInstructions(story[currentChapter].chapter, function () { revealOptions(); });
+
+                story_text = story[currentChapter].chapter;
+
+                story_text = story_text.replace(/playerName/g, name);
+
+                addToInstructions(story_text, function () { revealOptions(); });
             }
             else
             {
