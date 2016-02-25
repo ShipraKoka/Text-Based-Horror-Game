@@ -697,7 +697,7 @@ $(document).ready(function() {
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
 			addToInstructions("<p>The note said \"Death from above - avoid the books\". Something suddenly dropped onto my cheek crom the ceiling. Cold. Wet. It was blood. I looked up, the spikes above the body were red with blood. It appeared that the books triggered the spikes somehow. \"Jessica, we need to leave this library.\" I said. </p>", function(){
-				thirteenthchoice();
+			    twelftwelfchoice();
 			});
 		});
         $(".no23").one("click",function() {
@@ -712,7 +712,7 @@ $(document).ready(function() {
 
 		revealOptions(twelftwelfchoice);
 		
-        addToInstructions("WHAT DID I DO?</br>Option 1: HEAD TOWARD THE UNEXPLORED DOOR</br>Option 2: GO BACK FROM WHER WE CAME</br>");
+        addToInstructions("</br>WHAT DID I DO?</br>Option 1: HEAD TOWARD THE UNEXPLORED DOOR</br>Option 2: GO BACK FROM WHER WE CAME</br>");
         $(".yes24").one("click",function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();

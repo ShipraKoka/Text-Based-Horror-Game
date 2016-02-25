@@ -20,7 +20,6 @@
     }
 
     function naming() {
-
         $('.yes1').off();
         $('.no1').off();
         $('.yes1').on();
@@ -271,6 +270,7 @@
         });
     }
 
+    // grouped common functions
     function buttonReset() {
         $('.yes3').off();
         $('.no3').off();
@@ -279,9 +279,11 @@
         $('#buttonYes').hide();
     }      
 
-    var currentChapter = 0;
-    var resurrected = false;
+    // established variables for game play
+    var currentChapter = 0; // currentChapter is the array position of the story array.
+    var resurrected = false; // resurrected is used to prevent the display of the story text when choosing to continue playing
 
+    // created sound switch for chapter sounds to be access by the story array
     function playSound(sound) {
         switch (sound) {
             case "gravel":
@@ -297,21 +299,22 @@
                 break;
         }
     }
-            
+
+    // choices function will respond to chapter being acted upon
     function choices() {
         
         if (story[currentChapter].coffin1) {
-            addToInstructions("</br>I decided to open one of the caskets. Hopefully there was nothing inside...", function(){
+            addToInstructions(story[currentChapter].chapter, function () {
                 coffinone();
             })
         }
         else if (story[currentChapter].coffin2) {
-            addToInstructions("</br>I decided to open one of the caskets. Hopefully there was nothing inside...", function () {
+            addToInstructions(story[currentChapter].chapter, function () {
                 coffintwo();
             })
         }
         else if (story[currentChapter].coffin3) {
-            addToInstructions("</br>I decided to open one of the caskets. Hopefully there was nothing inside...", function () {
+            addToInstructions(story[currentChapter].chapter, function () {
                 coffinthree();
             })
         }
@@ -324,6 +327,7 @@
             $('.yesDead').off();
             $('.noDead').off();
             
+            playSound(story[currentChapter].sound);
             addToInstructions(story[currentChapter].chapter + "<br> I died. <br>Would you like to play again? <br> ", function () {
                 document.getElementById('laugh').play();
                 $('#buttonYes').show();
@@ -339,30 +343,37 @@
             });
             $(".noDead").one("click", function () {
                 $('#buttonYes').hide();
+                endScrollPageDownLoop;
                 addToInstructions("Smart decision. Get out while you still can.", function () {
                  
                     return;
                 }); 
             });                
         }
+        else if (story[currentChapter].ending) {
+
+            $("#buttonYes").hide();
+            $("#buttonOptions").hide();
+
+            story_text = story[currentChapter].chapter;
+            story_text = story_text.replace(/playerName/g, name);
+
+            addToInstructions(story_text, function () {
+                    endScrollPageDownLoop;
+                    exit();
+                });                        
+        }
         else if (story[currentChapter].options == "") {
 
             $("#buttonYes").hide();
             $("#buttonOptions").hide();
 
+            playSound(story[currentChapter].sound);
             addToInstructions(story[currentChapter].chapter, function () {
                 currentChapter = currentChapter + story[currentChapter].option1;
                 choices();
             });
-        }
-        else if (story[currentChapter].options == "" && story[currentChapter].option1 == 0) {
-
-            $("#buttonYes").hide();
-            $("#buttonOptions").hide();
-
-            exit();
-           
-        }
+        }        
         else
         {
             $("#buttonYes").hide();
@@ -373,7 +384,6 @@
             if (!resurrected) {
 
                 story_text = story[currentChapter].chapter;
-
                 story_text = story_text.replace(/playerName/g, name);
 
                 playSound(story[currentChapter].sound);
@@ -387,7 +397,6 @@
             
             buttonReset();            
 
-            playSound(story[currentChapter].sound);
             addToInstructions(story[currentChapter].options);            
             
             
@@ -417,7 +426,7 @@
         $("#button").one("click", function () {
             var choice = document.getElementById("myText").value;
             if (choice <= 2 || choice >= 4) {
-                currentChapter = 74;
+                currentChapter = 78;
                 choices();
             }
             else if (choice > 17) {
@@ -447,7 +456,7 @@
         $("#button").one("click", function () {
             choice = document.getElementById("myText").value;
             if (choice != 3 && choice != 17) {
-                currentChapter = 76;
+                currentChapter = 80;
                 choices();
             }
             else if (choice == 17) {
@@ -482,12 +491,14 @@
         $("#button").one("click", function () {
             var choice = document.getElementById("myText").value;
             if (choice != 3 && choice != 17 && choice != 5) {
-                currentChapter = 78;
+                currentChapter = 82;
                 choices();
             }
             else if (choice == 5) {
                 $("#textInput").hide();
-                currentChapter = 79;
+
+                resurrected = false;
+                currentChapter = 83;
                 choices();
                 
             }
