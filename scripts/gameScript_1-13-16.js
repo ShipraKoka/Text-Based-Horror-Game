@@ -70,37 +70,15 @@ $(document).ready(function() {
         play();
     }
 
-             function addToInstructions(newInstruction, callback) {
+    function addToInstructions(newInstruction, callback) {
        $("#buttonOptions").hide();
        startScrollPageDownLoop();
        $('<p></p>').appendTo($("#instructions")).typed({ strings : [filter_text_options_out(newInstruction)], typeSpeed : 0, callback : function() {
            endScrollPageDownLoop();
            callback && callback();
            options(newInstruction);
-           death_option_hide(newInstruction);
        }});
    }
-
-   function death_option_hide(input)
-   {
-       var holding_string = "";
-	   var string = reverse(input);
-       
-       
-        for (i = 0; i < string.length; i++) 
-        {
-            holding_string += string.charAt(i); 
-            if (reverse(holding_string) === "Would you like to play again? <br> ")
-		   { 
-			   $('#buttonYes').show();
-			   document.getElementById('laugh').play();
-               break 
-		   }
-        }
-   }
-   
-   
-
 
 	function options(input){
 	//adds options to buttons
@@ -112,43 +90,36 @@ $(document).ready(function() {
     	for (var i = 0, len = input.length; i < len; i++) 
         {
 			
-        if (input.charAt(i) === ":") 
-        {
-            option_one_start = true;
-        }
-        if (option_one_start === true && option_two_start === false )
-        {
-            if (input.charAt(i) === "<")
+            if (input.charAt(i) === ":") 
             {
-                option_two_start = true;
-                option_one_start = false;
-		opt1 = opt1.replace(": ", "").replace("<", "");
-                $("#yes").html(opt1);
-		
+                option_one_start = true;
             }
-
-            opt1 += input.charAt(i);
-            
-        }
+            if (option_one_start === true && option_two_start === false )
+            {
+                if (input.charAt(i) === "<")
+                {
+                    option_two_start = true;
+                    option_one_start = false;
+		            opt1 = opt1.replace(": ", "").replace("<", "");
+                    $("#yes").html(opt1);		
+                }
+                opt1 += input.charAt(i);            
+            }
         
         
-        if (option_one_start === true && option_two_start === true)
-        {
-            if (input.charAt(i) === "<")
+            if (option_one_start === true && option_two_start === true)
             {
-                option_two_start = false;
-                option_one_start = false;
-		opt2 = opt2.replace(": ", "").replace("<", "");
-                $("#no").html(opt2);
-		
+                if (input.charAt(i) === "<")
+                {
+                    option_two_start = false;
+                    option_one_start = false;
+		            opt2 = opt2.replace(": ", "").replace("<", "");
+                    $("#no").html(opt2);		
+                }
+                opt2 += input.charAt(i);            
             }
-            opt2 += input.charAt(i);
-            
         }
     }
-    
-    
-}
 
      function filter_text_options_out(input){ 
 		//filters options out of text
@@ -158,20 +129,15 @@ $(document).ready(function() {
 	   var save2 = false;
 	   var string = "";
 	   for (var i = 0, len = input2.length; i < len; i++) 
-        {
-			
+        {			
 			if (input2.charAt(i) === "<" && i < 155) 
-            {
-                
-				arrow = arrow + 1;
-				
+            {               
+				arrow = arrow + 1;				
             }
 			
 			if (input2.charAt(i) === ":") 
-            {
-                
-				save2 = true;
-				
+            {                
+				save2 = true;				
             }
 			
 			if (arrow === 4 && i < 155) 
@@ -182,31 +148,29 @@ $(document).ready(function() {
             {
                 string = string + input2.charAt(i);
             }
-			if(i === len - 1 && save === true && save2 === true)
-            {
-				
+			if (i === len - 1 && save === true && save2 === true)
+			{
+			    console.log(reverse(string.replace("<", "").replace("", "").replace("/", "").replace(">rb<", "").replace("^", "").replace("0001", "").replace("&", "")));
                 return reverse(string.replace("<", "").replace("", "").replace("/", "").replace(">rb<", "").replace("^", "").replace("0001", "").replace("&", ""));
             }
             else if(i === len - 1 && save2 === false)
             {
+                console.log(reverse(input2));
                 return reverse(input2);
             }
-		}
-}
+	   }
+     }
     
 	function reverse(s) {
-	//reverses order of strings. i needed it for my filter_text_options_out(input) function 
-  var o = '';
+        //reverses order of strings. i needed it for my filter_text_options_out(input) function 
+        var o = '';
 
-  for (var i = s.length - 1; i >= 0; i--)
+        for (var i = s.length - 1; i >= 0; i--)
 
-    o += s[i];
+        o += s[i];
 
-  return o;
-
-}
-   
-   
+        return o;
+	}  
    
 
    function startScrollPageDownLoop() {
@@ -323,7 +287,6 @@ $(document).ready(function() {
         $(".no3").one( "click", function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
-			document.getElementById("gravel").play();
             addToInstructions("I made my way up to the house. It appeared to be old and in need of repairs. Regardless, it held a certain beauty.</br>There looked to be about four stories, each floor big enough to contain a large family. Something gleamed to my left on the path. I looked over and saw a hatchet.", function(){
                 firstfirstchoice();
             });
@@ -406,13 +369,13 @@ $(document).ready(function() {
 			fourthchoice();
 			});
 		});
-            $(".no7").one("click",function() {
-				$('#buttonReveal').hide();
-				$('#buttonOptions').hide();
-				addToInstructions('I turned the face to view it. It was a man. He appeared dirty and unshaven. In his pocket, I found a picture...<br>The picture was of me! Underneath the photo was the word "KILL". "Well, that explains the ax," I muttered.<br>I made my way back to the porch, thankful I had weapons.', function(){
-					fourthchoice();
-				});
+        $(".no7").one("click",function() {
+			$('#buttonReveal').hide();
+			$('#buttonOptions').hide();
+			addToInstructions('I turned the face to view it. It was a man. He appeared dirty and unshaven. In his pocket, I found a picture...<br>The picture was of me! Underneath the photo was the word "KILL". "Well, that explains the ax," I muttered.<br>I made my way back to the porch, thankful I had weapons.', function(){
+				fourthchoice();
 			});
+		});
     }
 
     function fourthchoice() {
@@ -443,7 +406,6 @@ $(document).ready(function() {
         $(".yes9").one("click",function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
-			document.getElementById("window").play();
                     addToInstructions("<p>I messed around with the window and it opened with no resistance. I climbed inside and shut the window behind me. For good measure, I locked both windows. I took a moment and viewed the room I was in. It was a large hall. Suddenly a memory flashed... I am an investigator. I was on a major case. What was that case about...? Bang! A loud noise from the next room over. Two doors. One door leading to the noise and another door leading away from it.</p>", function(){
                         fifthchoice();
                     });
@@ -451,7 +413,6 @@ $(document).ready(function() {
         $(".no9").one("click",function() {
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
-			document.getElementById("window").play();
                     addToInstructions("<p>I messed around with the window and it opened with no resistance. I climbed inside and shut the window behind me. For good measure, I locked both windows. I took a moment and viewed the room I was in. It was a large hall. Suddenly a memory flashed... I am an investigator. I was on a major case. What was that case about...? Bang! A loud noise from the next room over. Two doors. One door leading to the noise and another door leading away from it.</p>", function(){
                         fifthchoice();
                     });
@@ -467,7 +428,6 @@ $(document).ready(function() {
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: OPEN THE DOOR LEADING TOWARD THE NOISE<br>Option 2: GO THROUGH THE DOOR LEADING AWAY FROM THE NOISE<br> ");
         $(".yes10").one("click",function() {
 			$('#buttonReveal').hide();
-			document.getElementById("#door").play();
             deadanddead("<br><br>I bravely opened the door that led to the noise. The mystery was instantly solved. There stood a man with a large shotgun in his hands. He wasted no time in taking aim at my body. Not that aim mattered with a gun like that. I quickly threw my hatchet at him. He moved to the left but my hatchet cut his thigh. It delayed the shooter slightly but didn't stop him. He shot. The gun tore through my midsection and this is the end of my story.", fifthchoice);
             });
         $(".no10").one("click",function() {
@@ -512,7 +472,6 @@ $(document).ready(function() {
         });
         $(".no12").one("click",function() {
 			$('#buttonReveal').hide();
-			document.getElementById("door").play();
             msg="I opened the door. Despite my attempts to be quiet, it creaked loudly. I heard shouting and heavy footsteps. The man with the shotgun appeared and before I could defend myself, he blew my head off with a hail of bullets. And this is the end of my story.";
             deadanddead(msg,sixthchoice);
         });
@@ -738,7 +697,7 @@ $(document).ready(function() {
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
 			addToInstructions("<p>The note said \"Death from above - avoid the books\". Something suddenly dropped onto my cheek crom the ceiling. Cold. Wet. It was blood. I looked up, the spikes above the body were red with blood. It appeared that the books triggered the spikes somehow. \"Jessica, we need to leave this library.\" I said. </p>", function(){
-				thirteenthchoice();
+			    twelftwelfchoice();
 			});
 		});
         $(".no23").one("click",function() {
@@ -753,7 +712,7 @@ $(document).ready(function() {
 
 		revealOptions(twelftwelfchoice);
 		
-        addToInstructions("WHAT DID I DO?</br>Option 1: HEAD TOWARD THE UNEXPLORED DOOR</br>Option 2: GO BACK FROM WHER WE CAME</br>");
+        addToInstructions("</br>WHAT DID I DO?</br>Option 1: HEAD TOWARD THE UNEXPLORED DOOR</br>Option 2: GO BACK FROM WHER WE CAME</br>");
         $(".yes24").one("click",function(){
 			$('#buttonReveal').hide();
 			$('#buttonOptions').hide();
@@ -1577,12 +1536,13 @@ $(document).ready(function() {
     function deadanddead(why, progress){
         $('#textInput').hide();
         $('#buttonOptions').hide();
-        $('#buttonYes').hide();
+        $('#buttonYes').show();
         $('#yes').off();
         $('#no').off();
         $('.yesDead').off();
         $('.noDead').off();
-
+        document.getElementById('laugh').play();
+        
         addToInstructions(why+"<br> I died. <br>Would you like to play again? <br> ");
             $(".yesDead").one("click",function(){
                 addToInstructions("Back into hell you go...");
